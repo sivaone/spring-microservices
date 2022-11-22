@@ -1,4 +1,15 @@
+server:
+  port: 8081
 spring:
+  application:
+    name: customer
+  config:
+    import: configserver:http://localhost:8888
   jpa:
     hibernate:
       ddl-auto: validate
+#  datasource:
+#    url: 'jdbc:postgresql://localhost:55001/customer'
+#    username:
+#    password:
+#    driver-class-name: org.postgresql.Driver

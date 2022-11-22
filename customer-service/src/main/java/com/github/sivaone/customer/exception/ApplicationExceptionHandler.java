@@ -4,18 +4,19 @@ package com.github.sivaone.customer.exception;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.ServletWebRequest;
-import org.springframework.web.context.request.WebRequest;
 
 import javax.persistence.EntityNotFoundException;
 import java.time.LocalDateTime;
 import java.util.List;
 
 @ControllerAdvice
+@Slf4j
 public class ApplicationExceptionHandler {
 
 
@@ -34,6 +35,7 @@ public class ApplicationExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponseDto> handleException(Exception ex) {
+        log.error("unknown error", ex);
         ErrorMessageDto errorMessageDto = new ErrorMessageDto("ERR-500", "Unknown error");
         ErrorResponseDto response = ErrorResponseDto.builder()
                 .path("")

@@ -2,11 +2,13 @@ package com.github.sivaone.customer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Profile;
 
 @SpringBootApplication
-public class Application {
+//@Profile("dev")
+public class CustomerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class);
+        SpringApplication.run(CustomerApplication.class);
     }
 }
