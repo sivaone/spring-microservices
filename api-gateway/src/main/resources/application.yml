@@ -1,0 +1,33 @@
+app:
+  host:
+    customer: http://localhost:8081
+    product: http://localhost:8083
+    order: http://localhost:8085
+
+spring:
+  cloud:
+    gateway:
+      default-filters:
+        - AddResponseHeader=Cache-Control, no-cache
+      routes:
+        - id: customer-route
+          uri: ${app.host.customer}
+          predicates:
+            - Path=/customer/**
+          filters:
+            - RewritePath=/customer(?<segment>/?.*), $\{segment}
+            - AddResponseHeader=Pragma, no-cache
+        - id: product-route
+          uri: ${app.host.product}
+          predicates:
+            - Path=/product/**
+          filters:
+            - RewritePath=/product(?<segment>/?.*), $\{segment}
+            - AddResponseHeader=Pragma, no-cache
+        - id: order-route
+          uri: ${app.host.order}
+          predicates:
+            - Path=/order/**
+          filters:
+            - RewritePath=/order(?<segment>/?.*), $\{segment}
+            - AddResponseHeader=Pragma, no-cache

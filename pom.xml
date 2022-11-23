@@ -60,6 +60,8 @@
         <module>order-service</module>
         <module>payment-service</module>
         <module>cloud-config-server</module>
+        <module>api-gateway</module>
+        <module>auth-server</module>
     </modules>
 
 </project>

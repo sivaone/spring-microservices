@@ -1,11 +1,13 @@
 server:
   port: 8888
+encrypt:
+  key:
 spring:
   cloud:
     config:
       server:
         git:
-          uri:
+          uri: https://github.com/<user>/<repo>
           skip-ssl-validation: false
           try-master-branch: false
           force-pull: true

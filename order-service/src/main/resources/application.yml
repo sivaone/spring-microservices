@@ -1,7 +1,12 @@
 server:
-  port: 8083
+  port: 8085
 spring:
   application:
     name: order
   config:
     import: configserver:http://localhost:8888
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri:
