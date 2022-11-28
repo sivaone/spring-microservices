@@ -12,14 +12,16 @@ import java.util.Map;
 @RequestMapping("/v1/orders")
 public class OrderController {
 
-    @PreAuthorize("hasAuthority('SCOPE_api_read')")
+//    @PreAuthorize("hasAuthority('SCOPE_api_read')")
+    @PreAuthorize("isAuthenticated()")
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Long>> getOrders() {
         return ResponseEntity.ok(List.of(1234L, 5678L));
     }
 
 
-    @PreAuthorize("hasAuthority('SCOPE_api_write')")
+    //@PreAuthorize("hasAuthority('SCOPE_api_write')")
+    @PreAuthorize("isAuthenticated()")
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Map<String, String>> createOrder(@RequestBody Map<String, String> order) {
         return ResponseEntity.ok(order);
