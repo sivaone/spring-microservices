@@ -4,6 +4,7 @@ import com.github.sivaone.customer.dto.AddressDto;
 import com.github.sivaone.customer.model.Address;
 import com.github.sivaone.customer.model.Customer;
 import com.github.sivaone.customer.service.CustomerService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
 @RequestMapping("/v1/customers")
+@Slf4j
 public class CustomerController {
 
     private final CustomerService customerService;
@@ -35,7 +37,9 @@ public class CustomerController {
 
     @GetMapping(path = "/{id}", produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<Customer> findCustomerById(@PathVariable Long id) {
+        log.info("Request received to find customer by id");
         Customer customer = customerService.findBy(id);
+        log.info("Request completed to find customer by id");
         return ResponseEntity.ok(customer); // TODO: change to dto
     }
 
