@@ -1,5 +1,8 @@
 server:
   port: 8081
+  tomcat:
+    mbeanregistry:
+      enabled: true
 spring:
   application:
     name: customer
@@ -8,3 +11,10 @@ spring:
   jpa:
     hibernate:
       ddl-auto: validate
+  zipkin:
+    baseUrl: http://localhost:9411/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

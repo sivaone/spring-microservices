@@ -4,6 +4,7 @@ import com.github.sivaone.customer.dto.AddressDto;
 import com.github.sivaone.customer.model.Address;
 import com.github.sivaone.customer.model.Customer;
 import com.github.sivaone.customer.service.CustomerService;
+import io.micrometer.core.annotation.Timed;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RestController
 @RequestMapping("/v1/customers")
 @Slf4j
+@Timed
 public class CustomerController {
 
     private final CustomerService customerService;

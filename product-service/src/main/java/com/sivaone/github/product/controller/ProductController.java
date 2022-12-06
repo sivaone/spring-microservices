@@ -2,6 +2,7 @@ package com.sivaone.github.product.controller;
 
 import com.sivaone.github.product.model.Product;
 import com.sivaone.github.product.service.ProductService;
+import io.micrometer.core.annotation.Timed;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -13,6 +14,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
 @RequestMapping("/v1/products")
+@Timed
 public class ProductController {
 
     private final ProductService productService;
