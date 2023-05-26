@@ -1,0 +1,19 @@
+version: '3.9'
+name: spring-microservices
+services:
+  cloud-config-server:
+    image: sivanagireddyalla/cloud-config-server
+#    build:
+#      context: ./cloud-config-server
+#      dockerfile: Dockerfile
+#      network: host
+#      args:
+#        mvn_user:
+#        mvn_pwd:
+    container_name: cloud-config-server
+    # Pass environment values from override file
+    environment:
+      CONFIG_ENCRYPT_KEY:
+      CONFIG_DATA_REPO:
+    ports:
+      - "8888:8888"

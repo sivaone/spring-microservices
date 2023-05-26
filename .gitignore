@@ -34,3 +34,5 @@ build/
 ### Mac OS ###
 .DS_Store
 /customer-service/src/config/data/
+
+**/docker-compose.override.yml

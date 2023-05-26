@@ -1,0 +1,11 @@
+version: "3.9"
+name: infrastructure
+services:
+  reposilite:
+    image: dzikoysk/reposilite:3.4.4
+    container_name: reposilite2
+    environment:
+      REPOSILITE_OPTS: '--token admin:super1secret2pwd'
+    ports:
+      - "9001:8080"
+    network_mode: host

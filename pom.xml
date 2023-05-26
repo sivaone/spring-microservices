@@ -12,7 +12,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.5</version>
+        <version>2.7.12</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -21,7 +21,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>17</java.version>
-        <spring-cloud.version>2021.0.5</spring-cloud.version>
+        <spring-cloud.version>2021.0.7</spring-cloud.version>
     </properties>
 
     <dependencyManagement>
@@ -47,11 +47,26 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-project-info-reports-plugin</artifactId>
-                    <version>3.4.1</version>
+                    <version>3.4.3</version>
                 </plugin>
             </plugins>
         </pluginManagement>
+
     </build>
+
+    <distributionManagement>
+        <repository>
+            <id>reposilite</id>
+            <url>http://localhost:9000/snapshots</url>
+        </repository>
+    </distributionManagement>
+
+    <repositories>
+        <repository>
+            <id>reposilite</id>
+            <url>http://localhost:9000/snapshots</url>
+        </repository>
+    </repositories>
 
 
     <modules>
