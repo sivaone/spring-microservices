@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<settings xmlns="http://maven.apache.org/SETTINGS/1.2.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.2.0 https://maven.apache.org/xsd/settings-1.2.0.xsd">
+
+    <pluginGroups>
+    </pluginGroups>
+
+    <proxies>
+        <!-- proxy
+         | Specification for one proxy, to be used in connecting to the network.
+         |
+        <proxy>
+          <id>optional</id>
+          <active>true</active>
+          <protocol>http</protocol>
+          <username>proxyuser</username>
+          <password>proxypass</password>
+          <host>proxy.host.net</host>
+          <port>80</port>
+          <nonProxyHosts>local.net|some.host.com</nonProxyHosts>
+        </proxy>
+        -->
+    </proxies>
+
+    <servers>
+        <server>
+            <id>reposilite</id>
+            <username>${env.MVN_REPO_USERNAME}</username>
+            <password>${env.MVN_REPO_PASSWORD}</password>
+        </server>
+
+
+        <!-- Another sample, using keys to authenticate.
+        <server>
+          <id>siteServer</id>
+          <privateKey>/path/to/private/key</privateKey>
+          <passphrase>optional; leave empty if not used.</passphrase>
+        </server>
+        -->
+    </servers>
+
+    <mirrors>
+        <mirror>
+            <id>maven-default-http-blocker</id>
+            <mirrorOf>external:http:*</mirrorOf>
+            <name>Pseudo repository to mirror external repositories initially using HTTP.</name>
+            <url>http://0.0.0.0/</url>
+            <blocked>true</blocked>
+        </mirror>
+    </mirrors>
+
+    <profiles>
+        <profile>
+            <id>reposilite</id>
+            <repositories>
+                <repository>
+                    <id>reposilite</id>
+                    <name>Reposilite Repository</name>
+                    <url>http://localhost:9000/snapshots</url>
+                </repository>
+            </repositories>
+        </profile>
+    </profiles>
+
+    <activeProfiles>
+        <activeProfile>reposilite</activeProfile>
+    </activeProfiles>
+
+</settings>
